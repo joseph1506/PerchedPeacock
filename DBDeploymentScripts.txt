@@ -1,0 +1,64 @@
+create database ParkingSystemDB;
+mysql> create user 'admin'@'%' identified by 'admin123'; 
+mysql> grant all on ParkingSystemDB.* to 'admin'@'%'; 
+
+
+DROP TABLE IF EXISTS `USER_MASTER`;
+CREATE TABLE `USER_MASTER` (
+  `USER_ID` varchar(100) NOT NULL,
+  `FIRST_NAME` varchar(255) NOT NULL,
+  `LAST_NAME` varchar(255) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `PHONE` varchar(100) NOT NULL,
+  `ROLES` varchar(255) NOT NULL,
+  `COUNTRY` varchar(255) NOT NULL,
+  `PASSWORD` varchar(255) NOT NULL,
+  `ACTIVE` varchar(10) NOT NULL,
+  PRIMARY KEY (`USER_ID`)
+);
+
+
+DROP TABLE IF EXISTS `COUNTRY`;
+CREATE TABLE `COUNTRY` (
+  `NAME` varchar(255) NOT NULL,
+  `CODE` varchar(255) NOT NULL,
+  `ACTIVE` varchar(10) NOT NULL,
+  PRIMARY KEY (`CODE`)
+);
+
+DROP TABLE IF EXISTS `PARKING_CENTER`;
+CREATE TABLE `PARKING_CENTER` (
+  `CENTER_ID` varchar(100) NOT NULL,
+  `COUNTRY_CODE` varchar(255) NOT NULL,
+  `TOTAL_SLOTS` SMALLINT,
+  `AVAILABLE_SLOTS` SMALLINT,
+  PRIMARY KEY (`CENTER_ID`)
+);
+
+DROP TABLE IF EXISTS `SLOT_STATUS`;
+CREATE TABLE `SLOT_STATUS` (
+  `SLOT_ID` varchar(100) NOT NULL,
+  `CENTER_ID` varchar(100) NOT NULL,
+  `SLOT_NO` SMALLINT,
+  `STATUS` varchar(30) NOT NULL,
+  PRIMARY KEY (`SLOT_ID`)
+);
+
+DROP TABLE IF EXISTS `LOGIN_DETAILS`;
+CREATE TABLE `LOGIN_DETAILS` (
+  `ID` varchar(100) NOT NULL,
+  `USER_ID` varchar(100) NOT NULL,
+  `TOKEN` varchar(400) NOT NULL,
+  `CREATED` TIMESTAMP,
+  `EXPIRY` SMALLINT,
+  `STATUS` varchar(30) NOT NULL,
+  PRIMARY KEY (`ID`)
+);
+
+
+
+INSERT INTO `USER_MASTER`(
+	`USER_ID`,`FIRST_NAME`, `LAST_NAME`, `EMAIL`, `PHONE`, `ROLES`, `COUNTRY`, `PASSWORD`, `ACTIVE`) 
+  VALUES 
+  (`admin`,`Joseph`, `Antony`, `josephin.angel@gmail.com`, `777777777`, `ADMIN`, `INDIA`, `admin@987`, `Y`);
+
