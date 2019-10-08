@@ -3,6 +3,7 @@ package com.parking.user.config;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableConfigurationProperties(DataSourceProperties.class)
 public class DataSourceConfig {
 
     @Autowired
@@ -29,7 +31,7 @@ public class DataSourceConfig {
         return dataSource;
     }
 
-    @Bean(name = "sessionFactory")
+    @Bean(name = "entityManagerFactory")
     public SessionFactory getSessionFactory(DataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
         sessionBuilder.scanPackages("com.parking.user.entity");

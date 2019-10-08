@@ -5,10 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "spring.datasource")
 @NoArgsConstructor
 @Getter
 @Setter
+@ConfigurationProperties(prefix = "spring.datasource")
 public class DataSourceProperties {
     private String url;
     private String username;
