@@ -1,6 +1,7 @@
 package com.parking.user.controllers;
 
 import com.parking.user.constants.AppConstants;
+import com.parking.user.constants.Role;
 import com.parking.user.entity.User;
 import com.parking.user.exception.DisabledUserException;
 import com.parking.user.exception.InvalidUserCredentialsException;
@@ -11,15 +12,16 @@ import com.parking.user.service.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -59,7 +61,45 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<String> signupUser(@RequestBody User user) {
-        userAuthService.saveUser(user);
-        return new ResponseEntity<String>("User successfully registered", HttpStatus.OK);
+        return userAuthService.createUser(user, Arrays.asList(Role.USER));
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/createUser")
+    public ResponseEntity<String> createUser(@RequestBody User user){
+        return userAuthService.createUser(user);
+    }
+
+    // change password  -- for admin and user
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PostMapping("/changePassword")
+    public ResponseEntity<String> changePassword(@RequestBody User user){
+        return userAuthService.changePassword(user);
+    }
+
+    // modify user details  -- for admin and user
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PostMapping("/editProfile")
+    public ResponseEntity<String> editProfile(@RequestBody User user){
+        return userAuthService.editProfile(user);
+    }
+
+
+    // view users  -- for admin
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/getAllUsers")
+    public ResponseEntity<List<User>> getAllUsers(){
+        return userAuthService.getAllUsers();
+    }
+
+    //delete user --for admin
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/deleteUser/{userId}")
+    public ResponseEntity<String> deleteUser(@PathVariable String userId){
+        return userAuthService.deleteUser(userId);
+    }
+
+    //
+
+
 }

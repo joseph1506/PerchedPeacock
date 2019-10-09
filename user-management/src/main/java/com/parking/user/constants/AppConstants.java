@@ -4,8 +4,11 @@ public enum AppConstants {
     UNAUTHORIZED("Unauthorized"),
     AUTHORIZATION("Authorization"),
     BEARER("Bearer"),
-    USER("USER"),
-    ADMIN("ADMIN"),
+    USER_CREATION_SUCCESS("User successfully registered"),
+    USER_DELETION_SUCCESS("User successfully deleted"),
+    USER_MODIFICATION_SUCCESS("User details modified"),
+    USER_PASSWORD_CHANGED("User password modified"),
+    MASK("********"),
     COMMA_DELIMITER(",");
 
     private String value;
