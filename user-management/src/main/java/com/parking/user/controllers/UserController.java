@@ -64,21 +64,21 @@ public class UserController {
         return userAuthService.createUser(user, Arrays.asList(Role.USER));
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/createUser")
     public ResponseEntity<String> createUser(@RequestBody User user){
         return userAuthService.createUser(user);
     }
 
     // change password  -- for admin and user
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     @PostMapping("/changePassword")
     public ResponseEntity<String> changePassword(@RequestBody User user){
         return userAuthService.changePassword(user);
     }
 
     // modify user details  -- for admin and user
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     @PostMapping("/editProfile")
     public ResponseEntity<String> editProfile(@RequestBody User user){
         return userAuthService.editProfile(user);
@@ -86,14 +86,14 @@ public class UserController {
 
 
     // view users  -- for admin
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/getAllUsers")
     public ResponseEntity<List<User>> getAllUsers(){
         return userAuthService.getAllUsers();
     }
 
     //delete user --for admin
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/deleteUser/{userId}")
     public ResponseEntity<String> deleteUser(@PathVariable String userId){
         return userAuthService.deleteUser(userId);

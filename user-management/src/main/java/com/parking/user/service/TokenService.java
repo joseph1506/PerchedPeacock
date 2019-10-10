@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -55,7 +56,7 @@ public class TokenService {
             Claims body = Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
             user = new User();
             user.setUserId(body.getSubject());
-            Set<String> roles = (Set<String>) body.get(TokenConstants.ROLES.getValue());
+            List<String> roles = (List<String>) body.get(TokenConstants.ROLES.getValue());
             user.setRoles(
                     roles
                     .stream()
