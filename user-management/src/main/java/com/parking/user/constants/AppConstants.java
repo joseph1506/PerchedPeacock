@@ -9,6 +9,7 @@ public enum AppConstants {
     USER_MODIFICATION_SUCCESS("User details modified"),
     USER_PASSWORD_CHANGED("User password modified"),
     MASK("********"),
+    LOGOUT_SUCCESS("Logged out successfully"),
     COMMA_DELIMITER(",");
 
     private String value;

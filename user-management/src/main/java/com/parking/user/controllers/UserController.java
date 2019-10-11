@@ -100,6 +100,16 @@ public class UserController {
     }
 
     //
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    @PostMapping("/viewProfile")
+    public ResponseEntity<User> getProfileDetails(@RequestBody String token){
+        return userAuthService.getProfileDetails(tokenService.getUserDetailsFromToken(token));
+    }
 
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(@RequestBody String token){
+        return userAuthService.getMessageResponseEntity(AppConstants.LOGOUT_SUCCESS.getValue(),HttpStatus.OK);
+    }
 
 }

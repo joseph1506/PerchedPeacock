@@ -2,7 +2,9 @@ package com.parking.user.service;
 
 import com.parking.user.constants.AppConstants;
 import com.parking.user.constants.Role;
+import com.parking.user.constants.TokenConstants;
 import com.parking.user.entity.User;
+import com.parking.user.exception.TokenMalformedException;
 import com.parking.user.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -110,7 +112,20 @@ public class UserAuthService implements UserDetailsService {
         return getMessageResponseEntity(AppConstants.USER_DELETION_SUCCESS.getValue(), HttpStatus.OK);
     }
 
-    private ResponseEntity<String> getMessageResponseEntity(String message, HttpStatus status) {
+    public ResponseEntity<String> getMessageResponseEntity(String message, HttpStatus status) {
         return new ResponseEntity<String>(message, status);
     }
+
+    public ResponseEntity<User> getProfileDetails(User user) {
+        User userDetails = null;
+        if(user.getUserId()!=null){
+            userDetails= this.findActualUserById(user.getUserId());
+            userDetails.setPassword(AppConstants.MASK.getValue());
+        }else {
+            throw new TokenMalformedException(TokenConstants.INVALID_JWT_TOKEN.getValue());
+        }
+        return new ResponseEntity<User>(userDetails,HttpStatus.OK);
+    }
+
+
 }
