@@ -1,1 +1,25 @@
-<p>viewuser works!</p>
+<div>
+  <div class="container-one">
+
+    <mat-card style="border: 1px solid lightgrey; background-color: #F5F5F5;">
+
+      <mat-card-content>
+
+        <div class="form-row">
+          <div class="col-sm-12">
+            <ag-grid-angular
+              class="ag-theme-balham"
+              [gridOptions]="userDetails"
+              [pagination]="true"
+              [paginationPageSize]=5
+              [overlayNoRowsTemplate]="overlayNoRowsTemplate"
+              (cellClicked)="userAction($event)"
+              (gridReady)="onGridReady($event)">
+            </ag-grid-angular>
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-edituser',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EdituserComponent implements OnInit {
 
-  constructor() { }
+  editUserForm: FormGroup;
+  firstName: String;
+  lastName: String;
+  email: String;
+  phoneNumber: String;
+  userName: String;
+  password: String;
+  country: String;
 
-  ngOnInit() {
+  constructor(private router: Router,public formBuilder: FormBuilder) {
+  }
+
+  ngOnInit(){
+    this.editUserForm = this.formBuilder.group({
+      firstName: [''], lastName: [''], email: [''], phoneNumber: [''],
+      userName: [''], password: [''], country: ['']
+    })
   }
 
 }

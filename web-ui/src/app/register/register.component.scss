@@ -1,0 +1,24 @@
+a{
+	cursor: pointer;
+	color: rgb (205, 0, 40);
+}
+
+.select-style{
+	border:1px solid #ccc;
+	border-radius:3px;
+	font-size: 14px;
+	background-color: #fff;
+	font-family: 'Source Sans Pro',Arial,sans-serif;
+	width: 140%;
+}
+
+.text-style{
+	border:1px solid #ccc;
+	border-radius:3px;
+	font-size: 14px;
+	background-color: #fff;
+	font-family: 'Source Sans Pro',Arial,sans-serif;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: auto;
+}

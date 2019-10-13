@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-changepassword',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangepasswordComponent implements OnInit {
 
-  constructor() { }
+  changePassForm: FormGroup;
+  newPassword:String;
+  confirmNewPassword:String;
+  constructor(public formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.changePassForm = this.formBuilder.group({
+      newPassword: [''], confirmNewPassword: ['']
+    });
   }
 
 }

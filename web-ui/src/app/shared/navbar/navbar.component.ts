@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 export class NavbarComponent implements AfterViewInit {
   isLoggedIn$ : Observable<boolean>;
 
-  @ViewChild('appDrawer') appDrawer: ElementRef;
+  @ViewChild('appDrawer',{static:false}) appDrawer: ElementRef;
   version= VERSION;
 
   constructor(public translate:TranslateService,private authService:AuthService,
