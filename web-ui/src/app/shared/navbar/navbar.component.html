@@ -1,0 +1,67 @@
+<div class="container-fluid px-0" *ngIf="isLoggedIn$| async as isLoggedIn">
+  <mat-toolbar color="warn">
+    <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
+          <mat-icon menu aria-label="Side nav toggle icon"></mat-icon>
+        </button>
+      <span style="font-size: 20px;color: white">Parking System</span><span class="example-spacer"></span>
+      <a class="nav-link dropdown-toggle nav-link-style" data-toggle="dropdown"
+         href="#" role="button" aria-haspopup="true" aria-expanded="false"
+         style="text-align: left;color: white">Profile</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item nav-link-style" routerLink="/editUser" style="color: red">View Profile</a>
+        <a class="dropdown-item nav-link-style" routerLink="/changePassword" style="color: red">Change Password</a>
+        <a class="dropdown-item nav-link-style" routerLink="" (click)="logout()" style="color: red">Logout</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+
+    <mat-sidenav #drawer mode="side" opened role="navigation" style="background-color: skyblue;width: 10%;font-size: 30px">
+      <mat-nav-list>
+        <button mat-button [matMenuTriggerFor]="user">User</button>
+        <mat-menu #user="matMenu">
+          <button mat-menu-item (click)="createUser();">Create User</button>
+          <button mat-menu-item (click)="viewUser();">View User</button>
+         </mat-menu><br/>
+
+        <button mat-button [matMenuTriggerFor]="vehicle">Vehicle</button>
+        <mat-menu #vehicle="matMenu">
+          <button mat-menu-item>Add</button>
+          <button mat-menu-item>Remove</button>
+        </mat-menu><br/>
+
+        <button mat-button [matMenuTriggerFor]="booking">Booking</button>
+        <mat-menu #booking="matMenu">
+          <button mat-menu-item>Create</button>
+          <button mat-menu-item>View Bookings</button>
+        </mat-menu><br/>
+
+        <button mat-button [matMenuTriggerFor]="maintenance">Maintenance</button>
+        <mat-menu #maintenance="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="center" >Center</button>
+          <button mat-menu-item [matMenuTriggerFor]="parkingslots">Parking Slots</button>
+        </mat-menu><br/>
+
+        <mat-menu #center="matMenu">
+          <button mat-menu-item (click)="addCenter();">Add Center</button>
+          <button mat-menu-item>View Centers</button>
+        </mat-menu><br/>
+
+        <mat-menu #parkingslots="matMenu">
+          <button mat-menu-item>Add</button>
+          <button mat-menu-item>View Slots</button>
+        </mat-menu><br/>
+
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

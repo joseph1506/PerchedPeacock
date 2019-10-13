@@ -1,0 +1,33 @@
+.sg-main-header{
+  position:relative;
+  top:0;
+  left:0;
+  right:0;
+  background-color:#fff;
+  height:92px;
+  line-height:20px;
+  width:auto;
+}
+
+a{
+  cursor:pointer;
+  color:rgb(205,0,40);
+}
+
+.text-style{
+  border:1px solid #ccc;
+  border-radius:3px;
+  font-size:14px;
+  background-color:#fff;
+  font-family: 'Source Sans Pro',Arial,sans-serif;
+  overflow-y: scroll;
+  overflow-x:hidden;
+  height:auto;
+}
+
+.sesame-logo{
+  display:inline-block;
+  vertical-align:middle;
+  width:88px;
+  height:42px;
+}
