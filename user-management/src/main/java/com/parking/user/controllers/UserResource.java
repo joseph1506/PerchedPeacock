@@ -26,7 +26,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-public class UserController {
+public class UserResource {
 
     @Autowired
     private AuthenticationManager authenticationManager;
