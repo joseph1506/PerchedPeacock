@@ -49,6 +49,9 @@ import {Angulartics2, Angulartics2Module} from "angulartics2";
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 import {NgCircleProgressModule} from "ng-circle-progress";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { CreatebookingComponent } from './routes/bookings/createbooking/createbooking.component';
+import { ViewbookingComponent } from './routes/bookings/viewbooking/viewbooking.component';
+import { ViewcenterComponent } from './routes/maintenance/center/viewcenter/viewcenter.component';
 
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
@@ -65,7 +68,10 @@ export function HttpLoaderFactory(http:HttpClient){
     CreateuserComponent,
     EdituserComponent,
     ViewuserComponent,
-    AddcenterComponent
+    AddcenterComponent,
+    CreatebookingComponent,
+    ViewbookingComponent,
+    ViewcenterComponent
   ],
   imports: [
     BrowserModule,

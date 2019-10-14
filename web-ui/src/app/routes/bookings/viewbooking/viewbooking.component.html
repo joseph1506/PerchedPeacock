@@ -1,0 +1,58 @@
+<div class="container viewbooking-container">
+  <mat-card style="border: 0px solid lightgrey;background-color: #F5F5F5;">
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col-xs-6" style="font-size: 18px; color:red;">
+          <div class="form-group">
+            <b><u>Active Bookings List</u></b>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <ag-grid-angular
+            class="ag-theme-balham"
+            [gridOptions]="activeBookingDetails"
+            style="width: 100%;"
+            [pagination]="true"
+            [paginationPageSize]=5
+            [overlayNoRowsTemplate]="overlayNoRowsTemplate"
+            (cellClicked)="userAction($event)"
+            (gridReady)="onGridReady($event)">
+          </ag-grid-angular>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="this.viewSlotsEnable" style="border: 0px solid lightgrey; background-color: #F5F5F5; margin-top: 10px;">
+
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col-xs-6" style="font-size: 18px; color:red;">
+          <div class="form-group">
+            <b><u>Expired / Cancel Bookings List</u></b>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <ag-grid-angular
+            class="ag-theme-balham"
+            [gridOptions]="expiredBookingDetails"
+            style="width: 100%;"
+            [pagination]="true"
+            [paginationPageSize]=5
+            [overlayNoRowsTemplate] = "overlayNoRowsTemplate"
+            (cellClicked)="userAction($event)"
+            (gridReady)="onGridReady($event)">
+          </ag-grid-angular>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

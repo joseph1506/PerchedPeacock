@@ -9,9 +9,12 @@ import {ChangepasswordComponent} from "./routes/user/changepassword/changepasswo
 import {EdituserComponent} from "./routes/user/edituser/edituser.component";
 import {ViewuserComponent} from "./routes/user/viewuser/viewuser.component";
 import {CreateuserComponent} from "./routes/user/createuser/createuser.component";
+import {ViewcenterComponent} from "./routes/maintenance/center/viewcenter/viewcenter.component";
+import {ViewbookingComponent} from "./routes/bookings/viewbooking/viewbooking.component";
+import {CreatebookingComponent} from "./routes/bookings/createbooking/createbooking.component";
 
 
-/*const routes: Routes = [
+const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'home', component:HomeComponent, canActivate:[AuthGuard]},
@@ -20,18 +23,9 @@ import {CreateuserComponent} from "./routes/user/createuser/createuser.component
   {path:'editUser', component:EdituserComponent, canActivate:[AuthGuard]},
   {path:'changePassword', component:ChangepasswordComponent, canActivate:[AuthGuard]},
   {path:'addCenter', component:AddcenterComponent, canActivate:[AuthGuard]},
-  {path:'**', redirectTo:''},
-];*/
-
-const routes: Routes = [
-  {path:'', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
-  {path:'home', component:HomeComponent},
-  {path:'createUser', component:CreateuserComponent},
-  {path:'viewUser', component:ViewuserComponent},
-  {path:'editUser', component:EdituserComponent},
-  {path:'changePassword', component:ChangepasswordComponent},
-  {path:'addCenter', component:AddcenterComponent},
+  {path:'viewCenter', component:ViewcenterComponent, canActivate:[AuthGuard]},
+  {path:'viewBooking', component:ViewbookingComponent, canActivate:[AuthGuard]},
+  {path:'createBooking', component:CreatebookingComponent, canActivate:[AuthGuard]},
   {path:'**', redirectTo:''},
 ];
 

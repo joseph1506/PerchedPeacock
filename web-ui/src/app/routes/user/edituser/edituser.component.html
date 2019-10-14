@@ -1,29 +1,38 @@
-<div>
-  <div class="container-one">
+  <div class="container edituser-container">
 
     <mat-card style="border: 1px solid lightgrey; background-color: #F5F5F5;">
 
       <mat-card-content>
         <form [formGroup]="editUserForm">
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3" style="font-size: 18px; color: red;">
+          <div class="row">
+            <div class="col-xs-6" style="font-size: 18px; color: red;margin-left: 200px">
               <div class="form-group">
                 <b><u>View Profile</u></b>
               </div>
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="form-group">
+                <span>First Name</span>
+              </div>
+            </div>
+            <div class="col-xs-4">
               <div class="form-group">
                 <input formControlName="firstName" [(ngModel)]="firstName" type="text"
-                       class="form-control text-style" placeholder"First Name">
+                       class="form-control text-style" placeholder="First Name">
               </div>
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="form-group">
+                <span>Last Name</span>
+              </div>
+            </div>
+            <div class="col-xs-4">
               <div class="form-group">
                 <input type="text" formControlName="lastName" [(ngModel)]="lastName"
                        class="form-control text-style" placeholder="Last Name">
@@ -31,8 +40,13 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="form-group">
+                <span>User Name</span>
+              </div>
+            </div>
+            <div class="col-xs-4">
               <div class="form-group">
                 <input type="text" formControlName="userName" [(ngModel)]="userName"
                        class="form-control text-style" placeholder="User Name">
@@ -40,8 +54,13 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="form-group">
+                <span>Email</span>
+              </div>
+            </div>
+            <div class="col-xs-4">
               <div class="form-group">
                 <input type="text" formControlName="email" [(ngModel)]="email"
                        class="form-control text-style" placeholder="EMail">
@@ -49,8 +68,13 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="form-group">
+                <span>Phone</span>
+              </div>
+            </div>
+            <div class="col-xs-4">
               <div class="form-group">
                 <input type="text" formControlName="phoneNumber" [(ngModel)]="phoneNumber"
                        class="form-control text-style" placeholder="Phone Number">
@@ -58,8 +82,13 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="form-group">
+                <span>Country</span>
+              </div>
+            </div>
+            <div class="col-xs-4">
               <div class="form-group">
                 <input type="text" formControlName="country" [(ngModel)]="country"
                        class="form-control text-disable-style" placeholder="Country" disabled>
@@ -67,8 +96,8 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
+          <div class="row">
+            <div class="col-xs-6">
               <div class="form-group">
                 <button class="btn btn-lg btn-danger" (click)="submit();">
                   Edit
@@ -81,4 +110,3 @@
       </mat-card-content>
     </mat-card>
   </div>
-</div>

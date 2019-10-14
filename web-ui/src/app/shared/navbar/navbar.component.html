@@ -1,18 +1,19 @@
-<div class="container-fluid px-0" *ngIf="true">
-  <mat-toolbar color="warn">
+<div class="container-fluid" *ngIf="isLoggedIn$|async as isLoggedIn">
+  <mat-toolbar color="warn" style="margin-top: 10px;">
     <mat-toolbar-row>
         <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
           <mat-icon menu aria-label="Side nav toggle icon"></mat-icon>
         </button>
       <span style="font-size: 20px;color: white">Parking System</span><span class="example-spacer"></span>
-      <a class="nav-link dropdown-toggle nav-link-style" data-toggle="dropdown"
+      <li class="nav-item dropdown" style="list-style-type: none;float: right">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown"
          href="#" role="button" aria-haspopup="true" aria-expanded="false"
          style="text-align: left;color: white">Profile</a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item nav-link-style" routerLink="/editUser" style="color: red">View Profile</a>
-        <a class="dropdown-item nav-link-style" routerLink="/changePassword" style="color: red">Change Password</a>
-        <a class="dropdown-item nav-link-style" routerLink="" (click)="logout()" style="color: red">Logout</a>
-      </div>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" routerLink="/editUser" style="color: red">View Profile</a>
+        <a class="dropdown-item" routerLink="/changePassword" style="color: red">Change Password</a>
+        <a class="dropdown-item" routerLink="" (click)="logout()" style="color: red">Logout</a>
+      </div></li>
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -34,8 +35,8 @@
 
         <button mat-button [matMenuTriggerFor]="booking">Booking</button>
         <mat-menu #booking="matMenu">
-          <button mat-menu-item>Create</button>
-          <button mat-menu-item>View Bookings</button>
+          <button mat-menu-item (click)="createBooking();">Create</button>
+          <button mat-menu-item (click)="viewBooking();">View Bookings</button>
         </mat-menu><br/>
 
         <button mat-button [matMenuTriggerFor]="maintenance">Maintenance</button>
@@ -46,7 +47,7 @@
 
         <mat-menu #center="matMenu">
           <button mat-menu-item (click)="addCenter();">Add Center</button>
-          <button mat-menu-item>View Centers</button>
+          <button mat-menu-item (click)="viewCenter();">View Centers</button>
         </mat-menu><br/>
 
         <mat-menu #parkingslots="matMenu">

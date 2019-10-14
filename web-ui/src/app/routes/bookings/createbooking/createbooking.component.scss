@@ -1,14 +1,14 @@
-.container-one {
+.createbooking-container {
 	width: 100%;
 	margin-left: auto;
 }
 
 a{
 	cursor: pointer;
-	color: rgb(205, 0, 40);
+	color: rgb (205,0,40);
 }
 
-.select-style{
+.select-style {
 	border:1px solid #ccc;
 	border-radius:3px;
 	font-size: 14px;
@@ -17,7 +17,7 @@ a{
 	width: 140%;
 }
 
-.text-style{
+.text-style {
 	border:1px solid #ccc;
 	border-radius:3px;
 	font-size: 14px;
@@ -26,9 +26,4 @@ a{
 	overflow-y: scroll;
 	overflow-x: hidden;
 	height: auto;
-}
-
-.createuser-container{
-  margin-top:5%;
-  margin-bottom: 5%;
 }

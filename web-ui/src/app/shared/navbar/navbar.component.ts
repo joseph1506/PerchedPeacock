@@ -39,6 +39,19 @@ export class NavbarComponent implements AfterViewInit {
     this.router.navigateByUrl('/addCenter');
   }
 
+  viewCenter(){
+    this.router.navigateByUrl('/viewCenter');
+  }
+
+  viewBooking(){
+    this.router.navigateByUrl('/viewBooking');
+  }
+
+  createBooking(){
+    this.router.navigateByUrl('/createBooking');
+  }
+
+
   logout(){
     let details= {userName:'',password:''};
     this.authService.login(details);

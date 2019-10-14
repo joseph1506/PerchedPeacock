@@ -1,0 +1,142 @@
+<div class="container createbooking-container">
+
+  <mat-card style="border: 1px solid lightgrey;background-color: #F5F5F5;">
+    <mat-card-content>
+      <form [formGroup]="createUserForm">
+
+        <div class="row">
+          <div class="col-xs-6" style="font-size: 18px; margin-left: 200px; color:red;">
+            <div class="form-group">
+              <b><u>Create Booking</u></b>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-2">
+            <div class="form-group">
+              <span>Country</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <select class="form-control form-control-alt" id="exampleFormControlSelect1" formControlName="country"
+                      [(ngModel)]="country">
+                <option value="">Select Country</option>
+                <option *ngFor="let counter of counterPartyData" value="{{counter.id}}">{{counter.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-2">
+            <div class="form-group">
+              <span>Center</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <select class="form-control form-control-alt" id="exampleFormControlSelect2"  formControlName="country"
+                      [(ngModel)]="country">
+                <option value="">Select Country</option>
+                <option *ngFor="let counter of counterPartyData" value="{{counter.id}}">{{counter.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-2">
+            <div class="form-group">
+              <span>From Date</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <input formControlName="firstName" [(ngModel)]="firstName" type="date" class="form-control text-style"
+                     placeholder="First Name">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-2">
+            <div class="form-group">
+              <span>To Date</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <input formControlName="firstName" [(ngModel)]="firstName" type="date"
+                     class="form-control text-style" placeholder="First Name">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <button class="btn btn-lg btn-danger" (click)="submit();">
+              View Slots
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card style="border: 0px solid lightgrey; background-color: #F5F5F5; margin-top: 10px;">
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col-xs-6" style="font-size: 18px; color:red;">
+          <div class="form-group">
+            <b><u>Available Slots</u></b>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <ag-grid-angular
+            class="ag-theme-balham"
+            [gridOptions]="availableSlots"
+            style="width: 100%;"
+            [pagination]="true"
+            [paginationPageSize]=5
+            [overlayNoRowsTemplate]="overlayNoRowsTemplate"
+            (cellClicked)="userAction($event)"
+            (gridReady)="onGridReady($event)">
+          </ag-grid-angular>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <div class="form-group">
+            <span>Vehicle</span>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <select class="form-control form-control-alt" id="exampleFormControlSelect1" formControlName="country"
+                    [(ngModel)]="country">
+              <option value="">Select Vehicle</option>
+              <option *ngFor="let counter of counterPartyData" value="{{counter.id}}">{{counter.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <button class="btn btn-lg btn-danger" (click)="submit();">
+              Book
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
