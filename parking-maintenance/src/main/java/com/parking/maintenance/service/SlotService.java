@@ -61,7 +61,7 @@ public class SlotService {
 
     public void deleteSlots(Center center){
         List<Slot> activeSlotsForCenter = slotRepository.
-                findSlotsByCenterIdAndStatusNot(center.getCenterId(),AppConstants.DELETED.getValue());
+                findSlotsByCenterIdAndStatusIsNot(center.getCenterId(),AppConstants.DELETED.getValue());
         activeSlotsForCenter.stream()
                 .forEach(slot -> deleteSlot(slot.getSlotId()));
     }

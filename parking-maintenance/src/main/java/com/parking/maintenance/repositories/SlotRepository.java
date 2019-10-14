@@ -16,6 +16,6 @@ public interface SlotRepository extends CrudRepository<Slot,String> {
 
     List<Slot> findSlotsByCenterIdAndStatus(String centerId,String status);
 
-    List<Slot> findSlotsByCenterIdAndStatusNot(String centerId,String status);
+    List<Slot> findSlotsByCenterIdAndStatusIsNot(String centerId,String status);
 
 }
