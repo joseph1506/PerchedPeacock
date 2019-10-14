@@ -1,53 +1,23 @@
-<div>
-  <div class="container-fluid sg-main-header" style="margin-top: 500px; background-color: #dad9d9;">
-  </div>
-
-  <div class="col-md-4 offset-md-4" style="background-color: #dad9d9; min-height: 460px; max-height: 460px;padding-left: 0px; padding-right: 0px;">
-    <mat-card style="border: 1px solid lightgrey;background-color: #F5F5F5;">
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Sign In</h3>
+      <mat-card style="border: 1px solid lightgrey;background-color: bisque;">
       <mat-card-content>
-        <form [formGroup]="loginForm">
-
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3" style="font-size: 18px; color: red;">
-              <div class="form-group">
-                <b><u>Login Form</u></b>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
-              <div class="form-group">
-                <input formControlName="userName" [(ngModel)]="userName" type="text"
-                       class="form-control text-style" placeholder="Username" required>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
-              <div class="form-group">
-                <input type="password" formControlName="password"
-                       style="background-color: #fff; border:1px solid #ccc;"
-                       [(ngModel)]="password" class="form-control text-style"  placeholder="Password" required>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="col-xs-6 offset-md-3">
-              <div class="form-group">
-                <button class="btn btn-lg btn-danger" (click)="login();">
-                  Sign In
-                </button>
-                <button class="btn btn-lg btn-danger" (click)="register();">
-                Register
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="userName" [(ngModel)]="userName" placeholder="Your UserId *" value="" required/>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" formControlName="password" [(ngModel)]="password" placeholder="Your Password *" value="" required/>
+        </div>
+        <div class="form-group" style="margin-top: 5px;">
+          <input type="submit" class="btnSubmit" value="Login" (click)="login();"/>
+          <input type="submit" class="btnSubmit" value="Sign Up" (click)="register();"/>
+        </div>
+      </form>
       </mat-card-content>
-    </mat-card>
+      </mat-card>
+    </div>
   </div>
 </div>

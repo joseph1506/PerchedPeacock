@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit {
           });
     }
     else{
-      this.toastr.errorToastr('Please enter User Name and Password', 'Parking Login!',
-        {toastTimeOut:3000, position:"bottom-rght",showCloseButton:true});
+      this.toastr.errorToastr('Please enter User Name and Password', 'Login',
+        {toastTimeOut:3000, position:"bottom-right",showCloseButton:true});
     }
   }
 

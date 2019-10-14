@@ -13,7 +13,7 @@ export class LoginService {
 
   login(userName,password){
     let body={userName:userName,password:password};
-    return this.http.post('http://usunispdweb002:8000/login',body)
+    return this.http.post('http://localhost:8000/login',body)
       .pipe( map(this.responseData),
         catchError((error:Response) => {
             this.toastr.errorToastr("Login Error",'Login',

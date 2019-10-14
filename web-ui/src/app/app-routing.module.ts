@@ -11,7 +11,7 @@ import {ViewuserComponent} from "./routes/user/viewuser/viewuser.component";
 import {CreateuserComponent} from "./routes/user/createuser/createuser.component";
 
 
-const routes: Routes = [
+/*const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'home', component:HomeComponent, canActivate:[AuthGuard]},
@@ -20,6 +20,18 @@ const routes: Routes = [
   {path:'editUser', component:EdituserComponent, canActivate:[AuthGuard]},
   {path:'changePassword', component:ChangepasswordComponent, canActivate:[AuthGuard]},
   {path:'addCenter', component:AddcenterComponent, canActivate:[AuthGuard]},
+  {path:'**', redirectTo:''},
+];*/
+
+const routes: Routes = [
+  {path:'', component:LoginComponent},
+  {path:'register', component:RegisterComponent},
+  {path:'home', component:HomeComponent},
+  {path:'createUser', component:CreateuserComponent},
+  {path:'viewUser', component:ViewuserComponent},
+  {path:'editUser', component:EdituserComponent},
+  {path:'changePassword', component:ChangepasswordComponent},
+  {path:'addCenter', component:AddcenterComponent},
   {path:'**', redirectTo:''},
 ];
 
