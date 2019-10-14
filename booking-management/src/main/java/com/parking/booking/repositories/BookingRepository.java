@@ -17,5 +17,8 @@ public interface BookingRepository extends CrudRepository<Booking,String> {
 
     List<Booking> findBookingsByUserId(String userId);
 
-    List<Booking> findBookingsBySlotIdAndStatusAndFromTimeIsAfterAndFromTimeIsBefore(String slotId, String status, Date fromDate,Date toDate);
+    List<Booking> findBookingsBySlotIdAndStatusAndFromTimeIsBeforeAndToTimeIsAfter(String slotId, String status, Date fromDate,Date toDate);
+
+    List<Booking> findBookingsBySlotIdAndStatusAndFromTimeIsAfterAndToTimeIsBefore(String slotId, String status, Date fromDate,Date toDate);
+
 }

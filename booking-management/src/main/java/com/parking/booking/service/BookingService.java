@@ -82,16 +82,25 @@ public class BookingService {
     }
 
     private boolean checkAvailablity(String slot, Date fromTime, Date toTime) {
-        List<Booking> activeBookingsForStart = bookingRepository.findBookingsBySlotIdAndStatusAndFromTimeIsAfterAndFromTimeIsBefore(slot,
+
+        // check if any Booking is there with fromTime > FROM_DATE and fromTime < TO_DATE
+        List<Booking> activeBookingsForStart = bookingRepository.findBookingsBySlotIdAndStatusAndFromTimeIsBeforeAndToTimeIsAfter(slot,
                 AppConstants.ACTIVE.getValue(),fromTime,fromTime);
-        if(isListEmpty(activeBookingsForStart)){
-            List<Booking> activeBookingsForEnd = bookingRepository.findBookingsBySlotIdAndStatusAndFromTimeIsAfterAndFromTimeIsBefore(slot,
+        if(!isListEmpty(activeBookingsForStart)) return true;
+
+        // check if any Booking is there with toTime > FROM_DATE and toTime < TO_DATE
+        List<Booking> activeBookingsForEnd = bookingRepository.findBookingsBySlotIdAndStatusAndFromTimeIsBeforeAndToTimeIsAfter(slot,
                     AppConstants.ACTIVE.getValue(),toTime,toTime);
-            return isListEmpty(activeBookingsForEnd);
+        if(!isListEmpty(activeBookingsForEnd)) return true;
+
+        // check if fromDate < FROM_DATE and TO_DATE>toDate
+        List<Booking> activeBookings = bookingRepository.findBookingsBySlotIdAndStatusAndFromTimeIsAfterAndToTimeIsBefore(slot,
+                AppConstants.ACTIVE.getValue(),fromTime,toTime);
+        if(!isListEmpty(activeBookingsForEnd)) {
+            return true;
         } else {
             return false;
         }
-
     }
 
     public <T> boolean  isListEmpty(List<T> listColl){
