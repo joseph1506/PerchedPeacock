@@ -54,7 +54,7 @@ public class VehicleService {
 
     public ResponseEntity<String> modifyVehicle(Vehicle vehicle) throws VehicleNotFoundException, VehicleAlreadyExistsException {
         Vehicle vehicleFromDB = findVehicle(vehicle.getId());
-        Vehicle alreadyExistingRegistration = vehicleRepository.findVehicleByRegistrationIdAndUserIdAndIdNot(vehicle.getRegistrationId(),vehicle.getUserId(),vehicle.getId());
+        Vehicle alreadyExistingRegistration = vehicleRepository.findVehicleByRegistrationIdAndUserIdAndIdIsNot(vehicle.getRegistrationId(),vehicle.getUserId(),vehicle.getId());
         saveIfNotExisting(vehicle,alreadyExistingRegistration);
         return getMessageResponseEntity(AppConstants.VEHICLE_MODIFIED_SUCCESS.getValue(),HttpStatus.OK);
     }

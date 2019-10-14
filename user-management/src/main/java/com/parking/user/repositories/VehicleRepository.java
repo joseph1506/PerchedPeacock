@@ -15,5 +15,5 @@ public interface VehicleRepository extends CrudRepository<Vehicle,String> {
 
     Vehicle findVehicleByRegistrationIdAndUserId(String registrationId,String userId);
 
-    Vehicle findVehicleByRegistrationIdAndUserIdAndIdNot(String registrationId,String userId,String id);
+    Vehicle findVehicleByRegistrationIdAndUserIdAndIdIsNot(String registrationId,String userId,String id);
 }
