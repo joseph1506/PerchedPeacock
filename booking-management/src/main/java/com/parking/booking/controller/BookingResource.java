@@ -24,7 +24,12 @@ public class BookingResource {
         return bookingService.getActiveBookings(userId);
     }
 
-    // Expired and cancelled bookings
+    // Expired and cancelled bookings -- for reports
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    @GetMapping("/inActiveBookings/{userId}")
+    public ResponseEntity<List<Booking>> getInActiveBookings(@PathVariable String userId){
+        return bookingService.getInActiveBookings(userId);
+    }
 
     // All Bookings
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -57,7 +62,7 @@ public class BookingResource {
     // Book a slot for Vehicle and a time period
     @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     @PostMapping("/bookSlot")
-    public ResponseEntity<String> bookSlot(@RequestBody Booking booking){
+    public ResponseEntity<String> bookSlot(@RequestBody Booking booking) throws Exception{
         return bookingService.bookSlot(booking);
     }
 }

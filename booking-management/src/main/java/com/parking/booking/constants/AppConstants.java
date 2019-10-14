@@ -9,12 +9,8 @@ public enum AppConstants {
     CANCELLED("CANCELLED"),
     BOOKING_NOT_FOUND("Booking not found in database"),
     BOOKING_CANCEL_SUCCESS("Booking cancelled successfully"),
-    //CENTER_DELETE_SUCCESSFULL("Center deleted successfully"),
-    //SLOT_DELETE_SUCCESSFULL("Slot deleted successfully"),
-    //SLOT_ADDITION_SUCCESSFULL("Slot added successfully"),
-    //AVAILABLE("AVAILABLE"),
-    //BOOKED("BOOKED"),
-    //DELETED("DELETED"),
+    SLOT_BOOKED("Slot not available for booking"),
+    BOOKING_SUCCESS("Booking successfull. Your Booking id is::"),
     COMMA_DELIMITER(",");
 
     private String value;
