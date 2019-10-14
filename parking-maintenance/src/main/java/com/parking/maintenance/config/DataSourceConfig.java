@@ -33,7 +33,7 @@ public class DataSourceConfig {
     @Bean(name = "entityManagerFactory")
     public SessionFactory getSessionFactory(DataSource dataSource) {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-        sessionBuilder.scanPackages("com.parking.user.entity");
+        sessionBuilder.scanPackages("com.parking.maintenance.entity");
         return sessionBuilder.buildSessionFactory();
     }
 
